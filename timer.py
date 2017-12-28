@@ -2,8 +2,8 @@ import time
 
 class GameTimer:
 
-    def __init__(self):
-        self.game_time = 2     # sec
+    def __init__(self, round_timer):
+        self.game_time = round_timer
         self.state = True
         self.start_time = time.time()
 
