@@ -7,6 +7,7 @@ class Score:
         self.score = 0
         self.font = pygame.font.SysFont('TimesNewRoman', 25)
         self.text = self.font.render('Score: ' + str(self.score), 0, (0,0,0))
+        self.text_rect = self.text.get_rect()
 
     def show(self, screen):
         screen.blit(self.text, [10, 5])

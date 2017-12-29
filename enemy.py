@@ -6,6 +6,7 @@ from pygame.sprite import Sprite
 
 class Enemy(Sprite):
 
+    # Задаем начальные параметры енеми (квадратиков)
     def __init__(self, screen):
         super().__init__()
         self.width = 20
@@ -20,9 +21,13 @@ class Enemy(Sprite):
     def show(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
 
-    def random_position(self):
+    # Рандомные координаты квадратика, от ширины экрана отнимаем размер квадратика
+    # От конечной высоты экрана отнимаем высоту квадратика
+    # К начальной позиции по высоте добавляем нижнее значение поля Score + 5 пикселей
+
+    def random_position(self, score):
         self.rect.x = random.randint(0, self.rect_screen.right-self.rect.width)
-        self.rect.y = random.randint(0, self.rect_screen.bottom-self.rect.height)
+        self.rect.y = random.randint(score.text_rect.bottom+5, self.rect_screen.bottom-self.rect.height)
 
     def random_size(self):
         self.size = random.randint(0, 2)

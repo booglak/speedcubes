@@ -13,10 +13,11 @@ def play():
     screen = pygame.display.set_mode(settings.screen_size)
     event = EventHelper()
     enemy = Enemy(screen)
-    enemy.random_position()
     score = Score()
+    enemy.random_position(score)
     timer = GameTimer(settings.round_timer)
 
+    # пока таймер тикает (true) рисуем главный экран
     while timer.state:
         screen.fill(settings.bg_color)
         event.event_listener(enemy, score)
@@ -24,6 +25,8 @@ def play():
         enemy.show()
         pygame.display.flip()
         timer.timer_update()
+
+    # когда таймер закончился (false) рисуем экран ГеймОвер
     else:
         g_o = GameOver(settings)
         g_o.play()
