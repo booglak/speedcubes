@@ -11,11 +11,11 @@ class EventHelper:
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                self.mouse_click(enemy, event, score)
+                self.mouse_click_on_enemy(enemy, event, score)
 
     # Обработка конкретного ивента в зависимости от его типа
 
-    def mouse_click(self, enemy, event, score):
+    def mouse_click_on_enemy(self, enemy, event, score):
         if event.button == 1:
             pos = pygame.mouse.get_pos()
             if enemy.rect.x < pos[0] < enemy.rect.x+enemy.rect.width:

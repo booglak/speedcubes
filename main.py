@@ -28,7 +28,6 @@ def play():
             timer.state = 1
             timer.start()
 
-
         # пока таймер тикает (1) рисуем главный экран
 
         while timer.state == 1:
@@ -42,7 +41,7 @@ def play():
         # когда таймер закончился (2) рисуем экран ГеймОвер
 
         if timer.state == 2:
-            g_o = GameOver(settings)
+            g_o = GameOver(settings, score)
             g_o.play()
             timer.state = 0
 
