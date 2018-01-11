@@ -33,6 +33,7 @@ class GameOver:
         self.ta_text_posx = self.rect_screen.centerx - self.ta_text_rect.width / 2
         self.ta_text_posy = self.rect_screen.centery + self.ta_text_rect.height * 1.2
 
+
     def play(self):
         while self.state:
             self.screen.fill(self.settings.bg_color)

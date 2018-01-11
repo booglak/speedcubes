@@ -42,6 +42,13 @@ def play():
 
         if timer.state == 2:
             g_o = GameOver(settings, score)
+
+            # Write Score into file
+
+            file_score = open('topscore.txt', 'w')
+            file_score.write(str(score.score))
+            file_score.close()
+
             g_o.play()
             timer.state = 0
 
