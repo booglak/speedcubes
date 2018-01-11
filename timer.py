@@ -7,7 +7,10 @@ class GameTimer:
         self.state = 0
         self.start_time = time.time()
 
-    def timer_update(self):
+    def start(self):
+        self.start_time = time.time()
+
+    def update(self):
         end_time = time.time()
         if (end_time - self.start_time) > self.game_time:
             self.state = 2

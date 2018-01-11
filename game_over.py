@@ -13,12 +13,20 @@ class GameOver:
         self.text_rect = self.text.get_rect()
         self.text_posx = self.rect_screen.centerx - self.text_rect.width/2
         self.text_posy = self.rect_screen.centery - self.text_rect.height / 2
+        self.state = 1
 
     def play(self):
-        while 1:
+        while self.state:
             self.screen.fill(self.settings.bg_color)
+            self.screen.blit(self.text, [self.text_posx, self.text_posy])
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-            self.screen.blit(self.text, [self.text_posx, self.text_posy])
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        pos = pygame.mouse.get_pos()
+                        if self.text_posx < pos[0] < self.text_posx + self.text_rect.width:
+                            if self.text_posy < pos[1] < self.text_posy + self.text_rect.height:
+                                self.state = 0
+
             pygame.display.flip()
